@@ -30,6 +30,8 @@ To set children's position within a `Row`, set the `horizontalArrangement` and `
     }
 ```
 
+
+
 #### Modifiers
 - __Padding__:  It give some `thickness` or some `width inside` the Composable
 ```kotlin
@@ -50,6 +52,20 @@ To set children's position within a `Row`, set the `horizontalArrangement` and `
             Color.Red, 
             RoundedCornerShape(8.dp),
         )
+```
+
+#### Activity life cycle
+![Activity life cycle](image.png)
+
+```kotlin
+class MainActivity : ComponentActivity(){
+    override fun onCreate(){
+        //..
+    }
+    override fun onStop(){
+        //..
+    }
+}
 ```
 
 ---
