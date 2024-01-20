@@ -12,7 +12,7 @@
     //This avoid tight couple to our application
     val names = stringResourse(R.string.name)
 ```
-
+---
 #### Alignment, Arrangement of Box, Row, Column
 To set children's position within a `Row`, set the `horizontalArrangement` and `verticalAlignment` arguments. For a `Column`, set the `verticalArrangement` and `horizontalAlignment` arguments.
 ```kotlin
@@ -30,8 +30,7 @@ To set children's position within a `Row`, set the `horizontalArrangement` and `
     }
 ```
 
-
-
+---
 #### Modifiers
 - __Padding__:  It give some `thickness` or some `width inside` the Composable
 ```kotlin
@@ -53,9 +52,17 @@ To set children's position within a `Row`, set the `horizontalArrangement` and `
             RoundedCornerShape(8.dp),
         )
 ```
-
+---
 #### Activity life cycle
-![Activity life cycle](image.png)
+- [Hover to see Activity life cycle](image.png) 
+-  when opening a application
+    - `onCreate > onStart > onResume`
+-  when closing a application
+    -  `onPause > onStop` 
+- when again opening after some moment
+    - `onRestart > onStart > onResume`
+- If you kill the application , If you rotate the phone also with destroy data
+    -  `onPause > onStop > onDestroy`
 
 ```kotlin
 class MainActivity : ComponentActivity(){
@@ -65,7 +72,19 @@ class MainActivity : ComponentActivity(){
     override fun onStop(){
         //..
     }
+    //..
 }
+```
+---
+#### State Management and its Life cycle (Composable side) 
+
+- used to update the changes
+```kotlin
+    //remembers but destroys the data even after rotating phone
+    var revenue by remember { mutableStateOf(0) } 
+    //Remeber untill application is killed
+    var revenue by rememberSaveable { mutableStateOf(0) }
 ```
 
 ---
+#### Thank you

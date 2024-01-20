@@ -12,6 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.billa.life_cycle.ui.theme.Life_cycleTheme
 import android.util.Log
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 
 private const val create = "life_bro";
 private const val resume = "life_bro";
@@ -74,11 +84,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    var txt by rememberSaveable { mutableIntStateOf(0) }
+    var names by rememberSaveable { mutableStateOf("") }
+    Column{
+        Text(
+            text = "Hello ${txt}!",
+            modifier = modifier
+        )
+        Text(
+            text = names,
+            modifier = modifier
+        )
+        Button(onClick = { txt += 1 }) {
+            Text(text = "click")
+        }
+        TextField(value = names, onValueChange = {names = it})
+    }
 
-   Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
 
 }
 
