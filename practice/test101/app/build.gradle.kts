@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.billa.test_101"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.billa.test_101"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 3
         versionCode = 1
         versionName = "1.0"
 
